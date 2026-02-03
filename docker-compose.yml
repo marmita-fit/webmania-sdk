@@ -6,3 +6,5 @@ services:
     command: "bash"
     volumes:
       - .:/app
+    env_file: 
+      - .env
