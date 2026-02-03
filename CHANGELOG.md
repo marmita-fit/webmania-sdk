@@ -1,17 +1,18 @@
-# Registro de alterações
+# Changelog
 
-## Não lançado (2026-02-02)
+## Unreleased (2026-02-02)
 
-### Adicionado
-- Suporte à emissão de NF-e para **Pessoa Jurídica (PJ)**: adição de campos no payload do cliente (`cnpj`, `razao_social`, `ie`, `suframa`, entre outros).
-- Testes de integração para emissão de NF-e (PF e PJ) usando **Bypass**.
+### Added
+- Support for issuing NF-e for **Legal Entities (PJ)**: addition of fields to the customer payload (`cnpj`, `corporate_name`, `state_registration`, `suframa`, among others).
+- Integration tests for NF-e issuance (individuals and legal entities) using **Bypass**.
 
-### Alterado
-- Correções e melhorias de documentação (`@moduledoc`) em módulos principais e de request para deixar descrições mais claras e em português.
+### Changed
+- Documentation fixes and improvements (`@moduledoc`) in core and request modules to make descriptions clearer and written in English.
 
-### Removido
-- Remoção do shim/compatibilidade `WebmaniaNfe.Invoice.Request` (quando aplicável).
+### Removed
+- Removal of the `WebmaniaNfe.Invoice.Request` shim/compatibility layer (when applicable).
 
 ---
 
-> Nota: atualize a seção `Não lançado` com a versão quando preparar um release.
+> Note: update the `Unreleased` section with the version number when preparing a release.
+`
