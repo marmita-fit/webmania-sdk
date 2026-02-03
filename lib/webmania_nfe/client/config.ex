@@ -1,6 +1,8 @@
 defmodule WebmaniaNfe.Client.Config do
   @moduledoc """
-  Documentation for `WebmaniaNfe.Client.Config`, is used by `WebmaniaNfe.Client`.
+  Configuração do cliente para autenticação na API da Webmania.
+
+  Contém `base_url`, `consumer_key`, `consumer_secret`, `access_token` e `access_token_secret`.
 
   ## Usage
   Authentication is performed using the HTTP header so it is necessary to send your application's `X-Consumer-Key`

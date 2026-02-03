@@ -1,8 +1,8 @@
 defmodule WebmaniaNfe.Invoice.RequestTest do
   use ExUnit.Case
-  doctest WebmaniaNfe.Invoice.Request
+  doctest WebmaniaNfe.Invoice.Create.Request
 
-  alias WebmaniaNfe.Invoice.Request
+  alias WebmaniaNfe.Invoice.Create.Request, as: Request
 
   describe "invoice" do
     @valid_invoice %{
