@@ -10,19 +10,19 @@ defmodule WebmaniaNfe.MixProject do
       deps: deps(),
 
       # Docs
-      name: "WebmaniaNfe",
-      description: "WebmaniaNfe API SDK",
-      source_url: "https://github.com/jonatanrdsantos/elixir-webmania-nfe-sdk",
-      homepage_url: "https://github.com/jonatanrdsantos/elixir-webmania-nfe-sdk",
+      name: "Webmania NF-e SDK",
+      description: "Unofficial Elixir SDK for WebmaniaBR NF-e API",
+      source_url: "https://github.com/marmita-fit/webmania-sdk",
+      homepage_url: "https://github.com/marmita-fit/webmania-sdk",
       package: [
         licenses: ["MIT"],
         links: %{
-          "Documentation" => "https://webmaniabr.com/docs/rest-api-nfe/",
-          "GitHub" => "https://github.com/jonatanrdsantos/elixir-webmania-nfe-sdk/"
+          "Documentation" => "https://webmania.com.br/docs/rest-api-nfe/",
+          "GitHub" => "https://github.com/marmita-fit/webmania-sdk/"
         }
       ],
       docs: [
-        main: "WebmaniaNfe",
+        main: "Webmania NF-e SDK",
         extras: ["README.md"]
       ]
     ]
@@ -41,9 +41,10 @@ defmodule WebmaniaNfe.MixProject do
       {:httpoison, "~> 2.1"},
       {:exconstructor, "~> 1.2.9"},
       {:poison, ">= 3.0.0 and <= 7.0.0"},
-      {:ex_json_schema, "~> 0.11.1"},
+      {:ex_json_schema, "~> 0.11.2"},
       {:nestru, "~> 1.0"},
       {:domo, "~> 1.5"},
+      {:bypass, "~> 2.1", only: :test},
       {:ex_doc, "~> 0.31", only: :dev, runtime: false}
       # {:dep_from_hexpm, "~> 0.3.0"},
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
