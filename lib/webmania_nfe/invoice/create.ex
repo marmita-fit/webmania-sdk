@@ -95,11 +95,8 @@ defmodule WebmaniaNfe.Invoice.Create do
     }
   end
 
-  defp process_response(
-         %WebmaniaNfe.Client{response: {:ok, %HTTPoison.Response{status_code: 200, body: body}}} =
-           _client
-       ) do
-    body |> Poison.decode!(%{as: %WebmaniaNfe.Invoice.Get.Response{}})
+  defp process_response(%WebmaniaNfe.Client{response: {:ok, %HTTPoison.Response{status_code: 200, body: body}}} = _client) do
+    body |> Poison.decode!(%{as: %WebmaniaNfe.Invoice.Create.Response{}})
   end
 
   defp process_response(%WebmaniaNfe.Client{response: {:error, response}} = _client),

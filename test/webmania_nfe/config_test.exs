@@ -7,7 +7,7 @@ defmodule WebmaniaNfe.ConfigTest do
   describe "config" do
 
     test "new/1 with valid data return a config" do
-      assert {:ok, %Config{} = config } = Config.new(%{
+      assert {:ok, %Config{}} = Config.new(%{
                consumerKey: "consumerKey",
                consumerSecret: "consumerSecret",
                accessToken: "accessToken",
