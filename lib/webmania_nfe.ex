@@ -1,8 +1,8 @@
 defmodule WebmaniaNfe do
   @moduledoc """
-  Documentation for `WebmaniaNfe`.
+  Entrada principal para o SDK da Webmania NFe.
 
-  ## Usage
+  Fornece funções utilitárias para criação e consulta de NF-e.
   """
 
   alias WebmaniaNfe.Client

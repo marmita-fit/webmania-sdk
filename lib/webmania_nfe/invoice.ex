@@ -1,8 +1,8 @@
 defmodule WebmaniaNfe.Invoice do
   @moduledoc """
-  Documentation for `WebmaniaNfe.Invoice`, is used by `WebmaniaNfe`.
+  API para operações de NF-e (criação e consulta), usada por `WebmaniaNfe`.
 
-  ## Usage
+  ## Uso
 
   Before using the WebmaniaNfe SDk, you need to configure it with your credentials.
   The simplest way to do this is via `WebmaniaNfe.Client.Config.new/5`:

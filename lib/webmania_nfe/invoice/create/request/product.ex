@@ -1,6 +1,8 @@
 defmodule WebmaniaNfe.Invoice.Create.Request.Product do
   @moduledoc """
-  Documentation for `WebmaniaNfe.Invoice.Create.Request.Product`.
+  Representa um item (produto) no payload da NF-e.
+
+  Contém informações do produto como `nome`, `codigo`, `ncm`, `cest`, `quantidade`, `unidade` e valores.
   """
 
   @derive [Nestru.Encoder, Nestru.Decoder]

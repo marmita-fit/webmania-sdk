@@ -1,6 +1,8 @@
 defmodule WebmaniaNfe.Invoice.Create.Request.Customer do
   @moduledoc """
-  Documentation for `WebmaniaNfe.Invoice.Create.Request.Customer`.
+  Representa o cliente (destinatário) usado na requisição de emissão de NF-e.
+
+  Suporta Pessoa Física (CPF) e Pessoa Jurídica (CNPJ), além de clientes estrangeiros.
   """
 
   @derive [Nestru.Encoder, Nestru.Decoder]

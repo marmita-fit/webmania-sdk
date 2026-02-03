@@ -1,10 +1,10 @@
 defmodule WebmaniaNfe.Client do
   @moduledoc """
-  Documentation for `WebmaniaNfe.Client`, is used by `WebmaniaNfe`.
+  Cliente HTTP para acesso à API da Webmania, usado por `WebmaniaNfe`.
 
-  ## Usage
+  ## Uso
 
-  Before using the WebmaniaNfe SDk, you need to configure it with your credentials.
+  Antes de usar o SDK é necessário configurá-lo com suas credenciais.
   The simplest way to do this is via `WebmaniaNfe.Client.Config.new/5`:
   ```
       iex> config = WebmaniaNfe.Client.Config.new("https://webmaniabr.com/api/", "CONSUMER_KEY", "CONSUMER_SECRET", "ACCESS_TOKEN", "ACCESS_TOKEN_SECRET")
