@@ -41,17 +41,17 @@ defmodule Integration.CancelTest do
   end
 
   test "cancel invoice via WebmaniaNfe facade", %{bypass: bypass} do
-    Bypass.expect_once(bypass, "PUT", "/1/nfe/cancelamento/", fn conn ->
+    Bypass.expect_once(bypass, "PUT", "/1/nfe/cancelar/", fn conn ->
       {:ok, body, conn} = Plug.Conn.read_body(conn)
       decoded = Poison.decode!(body)
 
       assert decoded["chave"] == "11111111111111111111111111111111111111111111"
-      assert decoded["motivo"] == "Pedido cancelado pelo cliente"
+      assert decoded["motivo"] == "Cancelamento por erro de digitação"
 
       Plug.Conn.resp(conn, 200, Poison.encode!(%{
         "uuid" => "uuid-cancel-facade",
         "status" => "cancelado",
-        "motivo" => "Pedido cancelado pelo cliente"
+        "motivo" => "Cancelamento por erro de digitação"
       }))
     end)
 
@@ -59,7 +59,7 @@ defmodule Integration.CancelTest do
 
     request = WebmaniaNfe.Invoice.Cancel.Request.new(
       "11111111111111111111111111111111111111111111",
-      "Pedido cancelado pelo cliente"
+      "Cancelamento por erro de digitação"
     )
 
     webmania = WebmaniaNfe.cancel_invoice(webmania, request)

@@ -18,7 +18,7 @@ defmodule WebmaniaNfe.Invoice.Cancel do
     {Nestru.Encoder, hint: %{request: Request, response: Response}},
     {Nestru.Decoder, hint: %{request: Request, response: Response}}
   ]
-  @path "/1/nfe/cancelamento/"
+  @path "/1/nfe/cancelar/"
   @method "PUT"
 
   defstruct url: @path,
