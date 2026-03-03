@@ -9,6 +9,7 @@ defmodule WebmaniaNfe.Invoice.Create.Request.Product do
   defstruct [
     :nome,
     :codigo,
+    :cod_barras,
     :ncm,
     :cest,
     :quantidade,
