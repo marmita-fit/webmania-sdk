@@ -209,6 +209,8 @@ defmodule WebmaniaNfe.Client do
     case {entity.method, entity.request} do
       {"POST", %_{}} -> entity.request |> Nestru.encode!() |> Poison.encode!()
       {"POST", nil} -> ""
+      {"PUT", %_{}} -> entity.request |> Nestru.encode!() |> Poison.encode!()
+      {"PUT", nil} -> ""
       _ -> ""
     end
   end
@@ -219,6 +221,12 @@ defmodule WebmaniaNfe.Client do
         client.config.base_url <> entity.url
 
       {"POST", nil} ->
+        ""
+
+      {"PUT", %_{}} ->
+        client.config.base_url <> entity.url
+
+      {"PUT", nil} ->
         ""
 
       {"GET", %_{} = params} ->
