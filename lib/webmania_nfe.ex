@@ -53,4 +53,13 @@ defmodule WebmaniaNfe do
       invoice: invoice
     }
   end
+
+  def cancel_invoice(%__MODULE__{} = webmania_nfe, %Invoice.Cancel.Request{} = request) do
+    invoice = webmania_nfe.invoice |> Invoice.cancel(request)
+    %__MODULE__{
+      webmania_nfe |
+      client: invoice.client,
+      invoice: invoice
+    }
+  end
 end

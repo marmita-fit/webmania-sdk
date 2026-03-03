@@ -63,34 +63,40 @@ defmodule WebmaniaNfe.Invoice do
   ```
   """
 
-  alias WebmaniaNfe.Invoice.{Create, Get}
+  alias WebmaniaNfe.Invoice.{Cancel, Create, Get}
   alias WebmaniaNfe.Client
 
   @derive [Nestru.Encoder, Nestru.Decoder]
   defstruct client: %Client{},
             create: %Create{},
-            get: %Get{}
+            get: %Get{},
+            cancel: %Cancel{}
 
   def new() do
-    new(%Create{}, %Get{}, %Client{})
+    new(%Create{}, %Get{}, %Cancel{}, %Client{})
   end
 
   def new(%Create{} = create) do
-    new(create, %Get{}, %Client{})
+    new(create, %Get{}, %Cancel{}, %Client{})
   end
 
   def new(%Get{} = get) do
-    new(%Create{}, get, %Client{})
+    new(%Create{}, get, %Cancel{}, %Client{})
+  end
+
+  def new(%Cancel{} = cancel) do
+    new(%Create{}, %Get{}, cancel, %Client{})
   end
 
   def new(%Client{} = client) do
-    new(%Create{}, %Get{}, client)
+    new(%Create{}, %Get{}, %Cancel{}, client)
   end
 
-  def new(%Create{} = create, %Get{} = get, %Client{} = client) do
+  def new(%Create{} = create, %Get{} = get, %Cancel{} = cancel, %Client{} = client) do
     %__MODULE__{
       create: create,
       get: get,
+      cancel: cancel,
       client: client
     }
   end
@@ -106,6 +112,13 @@ defmodule WebmaniaNfe.Invoice do
     %__MODULE__{
       invoice |
       get: get
+    }
+  end
+
+  def add(%__MODULE__{} = invoice, %Cancel{} = cancel) do
+    %__MODULE__{
+      invoice |
+      cancel: cancel
     }
   end
 
@@ -141,6 +154,19 @@ defmodule WebmaniaNfe.Invoice do
       invoice |
       client: invoice.client,
       get: get
+    }
+  end
+
+  def cancel(%__MODULE__{} = invoice, %Cancel.Request{} = request) do
+    cancel = invoice.cancel
+    |> Cancel.add(request)
+    |> Cancel.add(invoice.client)
+    |> Cancel.request()
+
+    %__MODULE__{
+      invoice |
+      client: invoice.client,
+      cancel: cancel
     }
   end
 end
